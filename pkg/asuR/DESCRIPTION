@@ -1,0 +1,12 @@
+Package: asur
+Type: Package
+Title: Advanced statistics using R
+Version: 0.11
+Date: 2010-02-28
+Author: Thomas Fabbro <thomas.fabbro@unibas.ch>
+Maintainer: Thomas Fabbro <thomas.fabbro@unibas.ch>
+Description: Functions and data sets for a lecture in Advanced Statistics using R. Only a few functions may be of general interest. mancontr(), short for manual contrasts, it is possible to specify your own contrasts and give them useful names.
+Depends: MASS, lattice, grid, methods
+Suggests: car
+License: GPL version 2 or newer
+URL: http://www.evolution.unibas.ch/teaching/r_course/asuR.htm
