@@ -1,22 +1,23 @@
 #.onLoad <- function(libname = "asuR", pkgname = "asuR") require(methods)
 #useDynLib(asuR)
-export( "colVars",
-        "norm.test",
-        "mancontr", "mycontr" #back-comp. only
+export("colVars",
+       "norm.test",
+       "mancontr", "mycontr", #back-comp. only
        ## ## --- inspection related
-       ## # lm
-       ## "ihp",
-       ## "ilp",
-       ## "irp",
-       ## "prp",
-       ## "ryp",
-       ## # glm
-       ## "dep", # deviance residuals vs. linear predictor
-       ## "lep",
-       ## "nrp", # half-normal plot
+       ## lm
+       "ihp",
+       "ilp",
+       "irp",
+       "prp",
+       "ryp",
+       ## glm
+       "dep", # deviance residuals vs. linear predictor
+       "hnp", # half-normal plot
+       "lep",
+       "rpp"
+       ## lmer
        ## "rfp",
        ## "rgp",
-       ## "rpp"
-        )# data is always exported
+       )# data is always exported
 exportClasses()
 exportMethods("inspect") # calls workhorse() which calls the functions asked for
