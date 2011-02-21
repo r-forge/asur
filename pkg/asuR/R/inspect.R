@@ -107,8 +107,9 @@ setMethod(## creates a list of identified values, for every plot one slot
 #############################################################################
 inspect.lm <- function(mymodel, which = c("select", "sequence", "all"), id=c("all", "none"), ...){
   if(any(is.nan(rstudent(mymodel)))){stop("Residuals could not be studentized!!")}
+
   ##
-  ## here is the place to add additional fuctions that should become available for inspect
+  ## here is the place to add additional fuctions that should become available for inspecting an lm object
   plotList <- new("pDescList",
                   list = list(
                     new("pDesc", longName = "Potential  vs. studentized residuals", shortName = "prp", f = prp, id = as.integer(NA)),
@@ -118,13 +119,9 @@ inspect.lm <- function(mymodel, which = c("select", "sequence", "all"), id=c("al
                     new("pDesc", longName = "Index  vs. leverage", shortName = "ilp", f = ilp, id = as.integer(NA))
                     )
                   )
-  ## ================================= choosing the inspection plots possible for a given model TODO
-  ## f <- parseFormula(mymodel)
-  ## if( length(f@predict.vars.numeric) == 0){
-  ##   plot.names <- plot.names[-5,]
-  ## }
-  ##
+
   workhorse(mymodel = mymodel, which = which, id = id, plotList = plotList)
+  
 }
 setMethod("inspect", "lm", inspect.lm)
 
@@ -141,14 +138,11 @@ inspect.glm <- function(mymodel, which = c("select", "sequence", "all"), id=c("a
                     new("pDesc", longName = "half-normal quantiles vs. absolute stud. residuals", shortName = "hnp", f = hnp, id = as.integer(NA))
                     )
                   )
-  ## ================================= choosing the inspection plots possible for a given model TODO
-  ## f <- parseFormula(mymodel)
-  ## if( length(f@predict.vars.numeric) == 0){
-  ##   plot.names <- plot.names[-5,]
-  ## }
-  ##
+ 
   workhorse(mymodel = mymodel, which = which, id = id, plotList = plotList)
+
 }
+
 setMethod("inspect", "glm", inspect.glm)
 ## #############################################################################
 ## ###                                                                       GLM

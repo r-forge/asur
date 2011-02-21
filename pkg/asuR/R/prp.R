@@ -20,24 +20,12 @@ prp <- function(mymodel, id=c("none", "all"), ...){
                     )
   ## giving out the object
   print(plot.PR)
-  identified <- NULL
-  trellis.focus("panel", 1, 1)
   grid.lines(x=unit(c(0.5,0.5), "npc"), y=unit(c(0,1), "npc"))
   grid.lines(x=unit(c(0,1), "npc"), y=unit(c(0.5,0.5), "npc"))
-  identified <- panel.identify(labels=dimnames(model.matrix(mymodel))[[1]])
-  upViewport()
-  grid.text("labels within the plotting region refer to the row names in the data.frame", x=unit(0.5, "npc"), y=unit(0.01, "npc"))
 ### ================================= IDENTIFICATION
-##   identifyControl(panel.matrix=trellis.currentLayout(), original.row.names=row.names(my.data), id=id)
-## }
-  switch(id,
-         "all" = {
-
-  
-           return(identified)
-         },
-         "none" = {
-           return(as.integer(NA))
-         }
-         )
+  identifyControl(panel.matrix=trellis.currentLayout(),
+                  original.row.names=dimnames(model.matrix(mymodel))[[1]],
+                  id=id
+                  )
+### ================================= IDENTIFICATION  identifyControl(panel.matrix=trellis.currentLayout(), original.row.names=row.names(my.data),  id=id)
 }

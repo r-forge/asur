@@ -29,7 +29,7 @@ identifyControl <- function(panel.matrix, original.row.names, id, slot.names=NUL
 #    return(as.numeric(levels(as.factor(identified)))) #controls that every "number" enters just once!
     invisible(identified)
   }else{
-    if(id=="none"){}
+    if(id=="none"){identified <- NA}
     if(id=="all"){
       if(verbose){print(paste("VERBOSE id:", id))}
       for (j in 1:r.dim){ #moves across panel cols

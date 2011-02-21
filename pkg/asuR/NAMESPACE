@@ -1,4 +1,4 @@
-#.onLoad <- function(libname = "asuR", pkgname = "asuR") require(methods)
+.onLoad <- function(libname = "asuR", pkgname = "asuR") require(methods)
 #useDynLib(asuR)
 export("colVars",
        "norm.test",
@@ -20,4 +20,4 @@ export("colVars",
        ## "rgp",
        )# data is always exported
 exportClasses()
-exportMethods("inspect") # calls workhorse() which calls the functions asked for
+###exportMethods("inspect") # calls workhorse() which calls the functions asked for
