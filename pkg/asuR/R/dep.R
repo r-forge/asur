@@ -16,7 +16,6 @@ dep.glm <- function(mymodel, id=c("all", "none"), ...){
 ### ================================= checking and argument matching
   id <- match.arg(id)
 ### ================================= calculation
-  parseFormula(mymodel)
   eta <- predict(mymodel, type="link")
   deviance.residuals <- residuals(mymodel)
 ### ================================= plot

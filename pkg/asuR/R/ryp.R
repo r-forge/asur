@@ -1,4 +1,4 @@
-ryp <- function(mymodel, id = c("none", "all"), ...){
+ryp <- function(mymodel, id = c("all", "none"), ...){
 ### ================================= checking and argument matching
   if(class(mymodel)[1] != "lm"){stop("ERROR: the model you want to inspect should be fitted with lm")}
   id <- match.arg(id)

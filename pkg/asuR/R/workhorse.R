@@ -35,9 +35,9 @@ workhorse <- function(mymodel,
              }
              if(user.selection==0 | user.selection==3){break}
              if(user.selection==2){next}else{
-               thisPlot <- plotList[user.selection] # thisPlot is an object of class pDesc
+               thisPlot <- plotList[i] # thisPlot is an object of class pDesc
                id(thisPlot) <- f(thisPlot)(mymodel, id = id, main = long(thisPlot))
-               plotList[user.selection] <- thisPlot
+               plotList[i] <- thisPlot
              }
            }
            
@@ -49,7 +49,7 @@ workhorse <- function(mymodel,
            for(i in seq(along = long(plotList))){
                thisPlot <- plotList[i] # thisPlot is an object of class pDesc
                id(thisPlot) <- f(thisPlot)(mymodel, id = id, main = long(thisPlot))
-               plotList[user.selection] <- thisPlot
+               plotList[i] <- thisPlot
              }
            
               }

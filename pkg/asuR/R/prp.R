@@ -1,4 +1,4 @@
-prp <- function(mymodel, id=c("none", "all"), ...){
+prp <- function(mymodel, id=c("all", "none"), ...){
   ## ================================= checking and argument matching
   if(class(mymodel)[1]!="lm"){stop("ERROR: the model you want to inspect should be fitted with lm")}
   f <- parseFormula(mymodel)
@@ -17,11 +17,14 @@ prp <- function(mymodel, id=c("none", "all"), ...){
                     main="prp \n potential-residual plot",
                     xlab="potential",
                     ylab="residual",
+                    panel = function(x, y, ...){
+                      panel.xyplot(x, y, ...)
+                      grid.lines(x=unit(c(0.5,0.5), "npc"), y=unit(c(0,1), "npc"))
+                      grid.lines(x=unit(c(0,1), "npc"), y=unit(c(0.5,0.5), "npc"))
+                    }
                     )
   ## giving out the object
   print(plot.PR)
-  grid.lines(x=unit(c(0.5,0.5), "npc"), y=unit(c(0,1), "npc"))
-  grid.lines(x=unit(c(0,1), "npc"), y=unit(c(0.5,0.5), "npc"))
 ### ================================= IDENTIFICATION
   identifyControl(panel.matrix=trellis.currentLayout(),
                   original.row.names=dimnames(model.matrix(mymodel))[[1]],

@@ -107,7 +107,7 @@ setMethod(## creates a list of identified values, for every plot one slot
 #############################################################################
 inspect.lm <- function(mymodel, which = c("select", "sequence", "all"), id=c("all", "none"), ...){
   if(any(is.nan(rstudent(mymodel)))){stop("Residuals could not be studentized!!")}
-
+  id <- match.arg(id)
   ##
   ## here is the place to add additional fuctions that should become available for inspecting an lm object
   plotList <- new("pDescList",

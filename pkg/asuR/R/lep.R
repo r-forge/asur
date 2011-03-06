@@ -20,7 +20,7 @@ lep.glm <- function(mymodel, id=c("all", "none"), ...){
   if( class(mymodel)[1]!="glm" ){stop("the model has to be of class glm")}
     id <- match.arg(id)
 ### ================================= reading
-  parseFormula(mymodel)
+ f <- parseFormula(mymodel)
 ##   predicted <- predict(mymodel)
 ##   response.var <- all.vars(formula(mymodel))[1]
 ##   mydata <- mymodel$data
@@ -33,7 +33,8 @@ lep.glm <- function(mymodel, id=c("all", "none"), ...){
   ## y values
   mu <- predict(mymodel, type="response")
   predicted <- predict(mymodel, type="link")
-  linearizedResponse <- predicted + (response.values-mu)/mu
+  response.values <- mymodel$data[,]###                       at WORK
+  linearizedResponse <- predicted + (response.values - mu) / mu
 ### ================================= plot
   for.ploting <- xyplot(linearizedResponse ~ eta,
                         main="lep.glm \n linearized response vs. linear predictor plot",
