@@ -33,8 +33,8 @@ lep.glm <- function(mymodel, id=c("all", "none"), ...){
   ## y values
   mu <- predict(mymodel, type="response")
   predicted <- predict(mymodel, type="link")
-  response.values <- mymodel$data[,]###                       at WORK
-  linearizedResponse <- predicted + (response.values - mu) / mu
+  ##response.values <- mymodel$data[,]###                       at WORK
+  linearizedResponse <- predicted + (f@response.values - mu) / mu
 ### ================================= plot
   for.ploting <- xyplot(linearizedResponse ~ eta,
                         main="lep.glm \n linearized response vs. linear predictor plot",
@@ -43,7 +43,9 @@ lep.glm <- function(mymodel, id=c("all", "none"), ...){
                         )
   print(for.ploting)
 ### ================================= identification
-  identifyControl(panel.matrix=trellis.currentLayout(), original.row.names=row.names(my.data), id=id)
+  identifyControl(panel.matrix=trellis.currentLayout(),
+                  original.row.names=row.names(f@data),
+                  id=id)
 ##   if(id=="all"){
 ##     selection.message <- "By clicking on the (first) mouse button selected points are identified\n"
 ##     selection.message.continue <- "(click a mouse other than the first (or ESC) to continue)\n"

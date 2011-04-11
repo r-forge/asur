@@ -133,7 +133,7 @@ inspect.glm <- function(mymodel, which = c("select", "sequence", "all"), id=c("a
   plotList <- new("pDescList",
                   list = list(
                     new("pDesc", longName = "deviance residuals vs. linear predictor", shortName = "dep", f = dep, id = as.integer(NA)),
-##                     new("pDesc", longName = "partial residual vs. each predictor", shortName = "rpp", f = rpp, id = as.integer(NA)),
+                    new("pDesc", longName = "partial residual vs. each predictor", shortName = "rpp", f = rpp, id = as.integer(NA)),
                     new("pDesc", longName = "linearized response vs. linear predictor", shortName = "lep", f = lep, id = as.integer(NA)),
                     new("pDesc", longName = "half-normal quantiles vs. absolute stud. residuals", shortName = "hnp", f = hnp, id = as.integer(NA))
                     )

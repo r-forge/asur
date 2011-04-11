@@ -1,20 +1,21 @@
 #############################################################################
 ### DEVIANCE - ETA - PLOT
 #############################################################################
-dep <- function(mymodel, id=c("all","none"), ...){
-standardGeneric("dep")
-}
-setGeneric("dep", def=dep)
+#dep <- function(mymodel, id=c("all","none"), ...){
+#standardGeneric("dep")
+#}
+#setGeneric("dep", def=dep)
 #############################################################################
 ###                                                                   synonym
 #############################################################################
-devianceResidual.linearPredictor <- dep
+#devianceResidual.linearPredictor <- dep
 #############################################################################
 ###                                                                       GLM
 #############################################################################
-dep.glm <- function(mymodel, id=c("all", "none"), ...){
+dep <- function(mymodel, id=c("all", "none"), ...){
 ### ================================= checking and argument matching
   id <- match.arg(id)
+  f <- parseFormula(mymodel)
 ### ================================= calculation
   eta <- predict(mymodel, type="link")
   deviance.residuals <- residuals(mymodel)
@@ -26,9 +27,11 @@ dep.glm <- function(mymodel, id=c("all", "none"), ...){
                   )
   print(plot1)
 ### ================================= IDENTIFICATION
-  identifyControl(panel.matrix=trellis.currentLayout(), original.row.names=row.names(my.data), id=id)
+  identifyControl(panel.matrix=trellis.currentLayout(),
+                  original.row.names=row.names(f@data),
+                  id=id)
 }
 ### ================================= method
-setMethod("dep", "glm", dep.glm)
+#setMethod("dep", "glm", dep.glm)
 #############################################################################
 

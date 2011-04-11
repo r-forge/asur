@@ -10,12 +10,12 @@ export("colVars",
        "ilp",
        "irp",
        "prp",
-       "ryp"
+       "ryp",
        ## glm
-       ##"dep", # deviance residuals vs. linear predictor
-       ##"hnp", # half-normal plot
-       ##"lep"
-       ##"rpp"
+       "dep", # deviance residuals vs. linear predictor
+       "hnp", # half-normal plot
+       "lep",
+       "rpp"
        ## lmer
        ## "rfp",
        ## "rgp",

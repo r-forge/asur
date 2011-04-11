@@ -20,7 +20,7 @@ rpp.lm <- function(mymodel, id=c("all","none"), ...){
   dataX <- data.frame()
   if(length(f@predict.vars.numeric)==0){stop("your model does not contain a numeric predictor")}
   for(this.numeric.predictor in f@predict.vars.numeric){
-    x.values <- response.values.lm
+    x.values <- f@response.values
     y.values <- rstudent(mymodel)
     dataX <- rbind(dataX, data.frame(x.values=scale(as.numeric(x.values)),
                                      y.values=scale(as.numeric(y.values)),
@@ -29,7 +29,7 @@ rpp.lm <- function(mymodel, id=c("all","none"), ...){
   }
 ### ================================= CORE
   ## panel arrangement
-  n.panels <- length(predict.vars.numeric) #number of panesl
+  n.panels <- length(f@predict.vars.numeric) #number of panels
   r.dim <- ceiling(sqrt(n.panels)) #number of panel rows
   c.dim <- ceiling(n.panels/r.dim) #number of panel cols
   ##
@@ -47,7 +47,9 @@ rpp.lm <- function(mymodel, id=c("all","none"), ...){
                     )
   print(respred)
 ### ================================= IDENTIFICATION
-  identifyControl(panel.matrix=trellis.currentLayout(), original.row.names=dataX$original.row.names, id=id)
+  identifyControl(panel.matrix=trellis.currentLayout(),
+                  original.row.names=dataX$original.row.names,
+                  id=id)
 }
 ###
 setMethod("rpp", "lm", rpp.lm)

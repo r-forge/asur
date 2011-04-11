@@ -21,6 +21,7 @@ setClass(Class = "Formula",
          representation = representation(
            response.term = "character",
            response.var = "character",
+           response.values = "numeric",
            predict.vars.numeric = "character",
            data = "data.frame"
            )
@@ -61,13 +62,14 @@ parseFormula.lm <- function(mymodel, ...){
   predict.vars.numeric <- predict.vars[predict.vars.class=="numeric"]# if none exists, e.g. in an ANOVA, it has lenght 0
   ## ----------- data
   data <- mymodel$model
-#  eval(parse(text=paste("response.values.lm <<- mymodel$model$", response.term, sep="")))
+  eval(parse(text=paste("response.values <- mymodel$model$", response.term, sep="")))
   ##
  # intercept.logical <<- as.logical(attr(mymodel$terms, "intercept"))
   ##
   f.lm <- new("Formula",
               response.term = response.term,
               response.var = response.var,
+              response.values = response.values,
               predict.vars.numeric = predict.vars.numeric,
               data = data
       )
@@ -111,18 +113,20 @@ parseFormula.glm <- function(mymodel, ...){
 ## ### index_coef.terms.numeric
 ##   index_coef.terms.numeric <<- match(predict.terms.numeric, names(coef(mymodel)))
 ## ### mydata
-##   my.data <<- mymodel$data
+ data <- mymodel$data
 ## ### response.values
-##   eval(parse(text=paste("response.values <<- my.data$",response.var,sep="")))
+ eval(parse(text=paste("response.values <- data$",response.var,sep="")))
 ## ### intercept
 ##   intercept.logical <<- as.logical(attr(mymodel$terms, "intercept"))
 ####
-  f.lm <- new("Formula",
+  f.glm <- new("Formula",
               response.term = response.term,
               response.var = response.var,
-              predict.vars.numeric = predict.vars.numeric
+               response.values = response.values,
+              predict.vars.numeric = predict.vars.numeric,
+              data = data
               )
-  return(f.lm)
+  return(f.glm)
 }
 setMethod("parseFormula", "glm", parseFormula.glm)
 
