@@ -13,7 +13,7 @@ norm.test <- function(x){
   dat <- scale(dat)
   extrem <- max(abs(dat))
   ##
-  old.par <- par()
+  old.par <- par(no.readonly = TRUE)
   par(mfrow=c(3,3), mar=c(1,1,1,1), oma=c(4,4,0,0), col="black")
   for(i in 1:9){
     mat <- cbind(rep(1:3, each=3),rep(1:3, times=3))
