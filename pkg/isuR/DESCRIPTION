@@ -1,0 +1,10 @@
+Package: isuR
+Type: Package
+Title: Introducing statistics using R
+Version: 0.01
+Date: 2012-10-29
+Author: Thomas Fabbro <thomas.fabbro@unibas.ch>
+Maintainer: Thomas Fabbro <thomas.fabbro@unibas.ch>
+Description: Mainly a collection of data sets for an introductionary lecture in statistics for natural scientists.
+License: GPL (>= 2)
+URL: http://www.evolution.unibas.ch/teaching/statistik/index.htm
