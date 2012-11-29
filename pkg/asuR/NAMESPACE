@@ -3,6 +3,7 @@
 export("colVars",
        "norm.test",
        "mancontr", "mycontr", #back-comp. only
+       "ortho",
        ## ## --- inspection related
        "inspect",
        ## lm
