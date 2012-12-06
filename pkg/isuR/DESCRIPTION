@@ -1,7 +1,7 @@
 Package: isuR
 Type: Package
 Title: Introducing statistics using R
-Version: 0.02
+Version: 0.03
 Date: 2012-10-29
 Author: Thomas Fabbro <thomas.fabbro@unibas.ch>
 Maintainer: Thomas Fabbro <thomas.fabbro@unibas.ch>
