@@ -1,7 +1,7 @@
 Package: asuR
 Type: Package
 Title: Advanced statistics using R
-Version: 0.14
+Version: 0.15
 Date: 2013-03-22
 Author: Thomas Fabbro <thomas.fabbro@unibas.ch>
 Maintainer: Thomas Fabbro <thomas.fabbro@unibas.ch>
