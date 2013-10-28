@@ -1,11 +1,11 @@
 Package: asuR
 Type: Package
 Title: Advanced statistics using R
-Version: 0.15
-Date: 2013-03-22
+Version: 0.16
+Date: 2013-10-28
 Author: Thomas Fabbro <thomas.fabbro@unibas.ch>
 Maintainer: Thomas Fabbro <thomas.fabbro@unibas.ch>
-Description: Functions and data sets for a lecture in Advanced Statistics using R. Only a few functions may be of general interest. mancontr(), short for manual contrasts, it is possible to specify your own contrasts and give them useful names.
+Description: Functions and data sets for a lecture in statistics using R. Only a few functions may be of general interest: 1.) mancontr(), short for manual contrasts, is a function that allows you to specify your own contrasts and give them useful names. 2.) norm.test(), allows to compare a normal qqplot to 8 qqplots with a sample from a normal distribution.
 Depends: MASS, lattice, grid, methods
 Suggests: car
 License: GPL (>= 2)
