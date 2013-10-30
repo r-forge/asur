@@ -1,12 +1,22 @@
 \name{inspect}
 \alias{inspect}
 \alias{inspect.lm}
+\alias{inspect,lm-method}
+\alias{inspect,glm-method}
+\alias{[,Formula-method}
+\alias{[-method}
+\alias{[,pDescList-method}
+\alias{[<-,pDescList-method}
 \alias{dep}
 \alias{hnp}
+\alias{hnp,glm-method}
 \alias{ihp}
 \alias{ilp}
 \alias{irp}
+\alias{rpp}
+\alias{rpp,lm-method}
 \alias{lep}
+\alias{lep,glm-method}
 \alias{prp}
 \alias{ryp}
 \title{Plots to inspect fitted models}
@@ -25,6 +35,7 @@ irp(mymodel, id= c("all", "none"), ...)
 lep(mymodel, id= c("all", "none"), ...)
 prp(mymodel, id= c("all", "none"), ...)
 ryp(mymodel, id= c("all", "none"), ...)
+rpp(mymodel, id= c("all", "none"), ...)
 }
 \arguments{
   \item{mymodel}{an object of class \code{glm} or \code{lm}, usually, a result of a
@@ -45,6 +56,22 @@ ryp(mymodel, id= c("all", "none"), ...)
     it be possible to interactively identify values}
   \item{...}{further arguments}
 }
+\section{Methods}{
+\describe{
+
+\item{\code{signature(mymodel = "ANY")}}{
+%%  ~~describe this method here~~
+}
+
+\item{\code{signature(mymodel = "glm")}}{
+%%  ~~describe this method here~~
+}
+
+\item{\code{signature(mymodel = "lm")}}{
+%%  ~~describe this method here~~
+}
+
+}}
 \details{The function inspect calls other functions (depending on their
   class) to inspect the model assumptions.
 }

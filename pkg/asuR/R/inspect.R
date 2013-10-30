@@ -85,7 +85,7 @@ setReplaceMethod(
           f = "id",
           signature = c("pDesc"),
           definition = function(x, value){
-            x@id <-  value
+            x@id <-  as.integer(value)
             return(x)
           })
 

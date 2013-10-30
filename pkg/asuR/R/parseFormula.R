@@ -62,7 +62,8 @@ parseFormula.lm <- function(mymodel, ...){
   predict.vars.numeric <- predict.vars[predict.vars.class=="numeric"]# if none exists, e.g. in an ANOVA, it has lenght 0
   ## ----------- data
   data <- mymodel$model
-  eval(parse(text=paste("response.values <- mymodel$model$", response.term, sep="")))
+  #eval(parse(text=paste("response.values <- mymodel$model$", response.term, sep="")))
+  response.values <- mymodel$model[, response.term]
   ##
  # intercept.logical <<- as.logical(attr(mymodel$terms, "intercept"))
   ##
@@ -115,7 +116,8 @@ parseFormula.glm <- function(mymodel, ...){
 ## ### mydata
  data <- mymodel$data
 ## ### response.values
- eval(parse(text=paste("response.values <- data$",response.var,sep="")))
+  response.values <- data[, response.var]
+#  eval(parse(text=paste("response.values <- data$",response.var,sep="")))
 ## ### intercept
 ##   intercept.logical <<- as.logical(attr(mymodel$terms, "intercept"))
 ####
