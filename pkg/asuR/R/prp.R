@@ -8,7 +8,7 @@ prp <- function(mymodel, id=c("all", "none"), ...){
   ei <- rstudent(mymodel)
   k <- dim(model.matrix(mymodel))[2]-1 #minus 1 for the intercept
   pii <- hat(model.matrix(mymodel))
-  di <- ei/(t(ei)%*%ei)
+  di <- ei/c(t(ei)%*%ei)
   ## calculations acording to Hadi-Script 5.68
   R <- k/(1-pii) * di^2/(1-di^2)
   P <- pii/(1-pii)
